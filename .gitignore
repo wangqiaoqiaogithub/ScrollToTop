@@ -1,5 +1,5 @@
 .DS_Store
-.vicode/
+.vscode/
 node_modules/
 npm-debug.log*
 yarn-debug.log*
