@@ -17,6 +17,7 @@
     "webpack-cli": "^3.3.2"
   },
   "dependencies": {
+    "lodash": "^4.17.13",
     "mini-css-extract-plugin": "^0.7.0",
     "webpack-dev-server": "^3.7.2"
   }
