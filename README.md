@@ -13,16 +13,16 @@ git clone git@github.com:wangqiaoqiaogithub/ScrollToTop.git
 ```
 或者
 ```js
-var audio = new Scroll('#myAudio');
+var audio = new ScrollToTop('#myAudio');
 ```
 ## 示例
 HTML文件：
 ```html
-<div id="myAudio" src="xxx" type="video/mp4"></div>
+<div id="myscrollTop"></div>
 ```
 JavaScript文件：
 ```js
-var videoscreen = new Video('#myAudio',{
+var videoscreen = new ScrollToTop('#myscrollTop',{
   speed: 10;//决定了向上滚动是的过渡速度
 })
 ```
