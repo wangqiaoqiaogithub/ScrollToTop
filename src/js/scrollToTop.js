@@ -42,7 +42,7 @@
         this.init();//创建共有方法来提供默认选项
     }
     var proto = ScrollToTop.prototype = new scrollTop();
-    proto.constructor = ScrollToTop;
+    proto.constructor = ScrollToTop;    
     proto.init = function(){
         this.bindscrollevent();
     }
