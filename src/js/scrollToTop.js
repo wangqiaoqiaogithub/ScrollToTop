@@ -42,22 +42,25 @@
         this.init();//创建共有方法来提供默认选项
     }
     var proto = ScrollToTop.prototype = new scrollTop();
-    proto.constructor = ScrollToTop;    
+    proto.constructor = ScrollToTop;
+    proto.textJournal = "欢迎使用scrollToTop.js";    
     proto.init = function(){
         this.bindscrollevent();
+        console.log(""+"%c"+proto.textJournal+"","background:#398bfc;color:#fff;font-size:19px;")
     }
     proto.bindscrollevent = function(){
         let top = this.element;//获取向上拉的选择器
         let speed = this.speed;
-        console.log(top)
+        //console.log(top)
         util.addEvent(top,"click",function(){
             var timer = setInterval(function(){
                 let otop = document.documentElement.scrollTop || document.body.scrollTop;
-                document.documentElement.scrollTop = document.body.scrollTop = 0;
+                let isspeed = Math.floor(-otop/6);
+                document.documentElement.scrollTop = document.body.scrollTop = otop+isspeed;
                 if(otop == 0){
                     clearInterval(timer)
                 }
-            },speed)
+            },speed)//speed表示为滑动的速度(定时器的帧数)
         })
     }
     if (typeof exports != 'undefined' && !exports.nodeType) {
