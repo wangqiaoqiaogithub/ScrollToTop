@@ -22,7 +22,7 @@
                 var bound = function(){
                     return fn.apply(element, arguments);
                 }
-                element.attachEvent(type, arguments)
+                element.attachEvent('on'+ type, arguments)
                 return bound
             }
         }
