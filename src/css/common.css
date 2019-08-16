@@ -63,3 +63,7 @@ time, mark, audio, video, input {
     line-height: 50px;
     text-align: center
 }
+#stcontainer:hover{
+    width: 145px;
+    height: 100%;
+}
