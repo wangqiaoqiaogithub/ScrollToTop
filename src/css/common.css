@@ -59,9 +59,7 @@ time, mark, audio, video, input {
     background-repeat: no-repeat
 }
 .stspan{
-    opacity: 0;
     float: left;
-    color: #3d3d3d;
     width: 95px;
     line-height: 50px;
     text-align: center;
@@ -72,5 +70,5 @@ time, mark, audio, video, input {
     height: 50px;
 }
 #stcontainer:hover .stspan{
-    opacity: 1;
+    color: #3d3d3d;
 }
