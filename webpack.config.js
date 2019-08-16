@@ -28,7 +28,17 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
-                use: 'file-loader'
+                use: [
+                    {
+                        loader: "url-loader",
+                        options: {
+                            name: "[name]-[hash:5].[ext]",
+                            fallback: 'file-loader',
+                            limit: 5000,
+                            outputPath: 'fonts/'//解析打包后输出的文件目录
+                        }
+                    }
+                ]
             }
         ]
     },
