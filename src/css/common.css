@@ -42,9 +42,9 @@ time, mark, audio, video, input {
     width: 50px;
     height: 50px;
     overflow: hidden;
-    color: #fff;
     vertical-align: middle;
     box-shadow: 0 6px 12px 0 rgba(80,80,80,.4);
+    background-color: #f6f4f4;
 }
 #scrolltop{
     position: absolute;
@@ -53,12 +53,12 @@ time, mark, audio, video, input {
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    color: #fff;
     background-image: url(../img/icon.svg);
     background-position: 6px 0px;
     background-repeat: no-repeat
 }
 .stspan{
+    display: none;
     float: left;
     width: 95px;
     line-height: 50px;
@@ -68,7 +68,8 @@ time, mark, audio, video, input {
 #stcontainer:hover{
     width: 145px;
     height: 50px;
+    background-color: #fff;
 }
 #stcontainer:hover .stspan{
-    color: #3d3d3d;
+    display: block;
 }
