@@ -47,7 +47,9 @@ time, mark, audio, video, input {
     box-shadow: 0 6px 12px 0 rgba(80,80,80,.4);
 }
 #scrolltop{
-    float: right;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
     width: 50px;
     height: 50px;
     border-radius: 100%;
@@ -57,6 +59,7 @@ time, mark, audio, video, input {
     background-repeat: no-repeat
 }
 .stspan{
+    opacity: 0;
     float: left;
     color: #000;
     width: 95px;
@@ -65,5 +68,8 @@ time, mark, audio, video, input {
 }
 #stcontainer:hover{
     width: 145px;
-    height: 100%;
+    height: 50px;
+}
+#stcontainer:hover .stspan{
+    opacity: 1;
 }

@@ -23,7 +23,8 @@ HTML文件：
 JavaScript文件：
 ```js
 var videoscreen = new ScrollToTop('#myscrollTop'决定点击向上滚动的容器为id属性值,{
-  speed: 10;//决定了向上滚动是的过渡速度
+  speed: 10,//决定了向上滚动是的过渡速度
+  scrolldistance: 40//垂直滚动条的距离
 })
 ```
 ## 环境
