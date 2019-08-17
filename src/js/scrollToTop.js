@@ -27,10 +27,14 @@
             }
         },
         addAttr:function(element,nature,elementname){
-            return element.setAttribute(nature,elementname)
+            let naturename = "data-"+nature;
+            naturename === "class";
+            return element.setAttribute(naturename,elementname)
         },
         removeAttr:function(element,nature,elementname){
-            return element.removeAttribute(nature,elementname)
+            let naturename = "data-"+nature;
+            naturename === "class";
+            return element.removeAttribute(naturename,elementname)
         }
     }
     function scrollTop(topevent,speed) {
@@ -51,7 +55,7 @@
         this.options = util.extend({}, this.constructor.defaultOptins, options);
         this.speed = this.options.speed;
         this.scrolldistance = this.options.scrolldistance;
-        this.beforenaturenamne = this.options.beforenaturename,
+        this.beforenaturename = this.options.beforenaturename,
         this.beforeclassname = this.options.beforeclassname,
         this.afternaturename = this.options.afternaturename,
         this.afterclassname = this.options.afterclassname
@@ -64,32 +68,47 @@
         this.bindscrollevent();
         console.log(""+"%c"+proto.textJournal+"","background:#398bfc;color:#fff;font-size:19px;")
     }
-    proto.bindscrollevent = function(){
+    proto.bindscrollevent = function(e){
+        e = e || window.event;
         let top = this.element;//获取向上拉的选择器
         let speed = this.speed;
         let sdistance = this.scrolldistance;
-        let bclassname = this.beforclassname;
         let bnaturename = this.beforenaturename;
-        let aclassname = this.afterclassname;
+        let bclassname = this.beforeclassname;
         let anaturename = this.afternaturename;
+        let aclassname = this.afterclassname;
         //console.log(top)
+        // if(e.wheelDelta){
+        //     if(e.wheelDelta < 0){
+        //         console.log(1)
+        //         return speed === 1;
+        //     }
+        // }else if(e.detail){
+        //     if(e.tail < 0){
+        //         console.log(1)
+        //         return speed === 1;
+        //     }
+        // }
         util.addEvent(top,"click",function(){
             var timer = setInterval(function(){
                 let otop = document.documentElement.scrollTop || document.body.scrollTop;
                 let isspeed = Math.floor(-otop/6);
                 document.documentElement.scrollTop = document.body.scrollTop = otop+isspeed;
                 if(otop == 0){
-                    clearInterval(timer)
+                    clearInterval(timer);
                 }
             },speed)//speed表示为滑动的速度(定时器的帧数)
+            console.log(speed)
         })
         util.addEvent(window,"scroll",function(){
             let otop = document.documentElement.scrollTop || document.body.scrollTop;
             console.log(sdistance)
             if(otop >= sdistance){
+                util.removeAttr(top,anaturename,aclassname)
                 util.addAttr(top,bnaturename,bclassname)
             }else{
-                util.removeAttr(top,anaturename,aclassname)
+                util.removeAttr(top,bnaturename,bclassname)
+                util.addAttr(top,anaturename,aclassname)
             }
         })
     }
