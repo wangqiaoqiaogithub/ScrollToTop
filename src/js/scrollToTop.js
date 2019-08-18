@@ -26,14 +26,16 @@
                 return bound
             }
         },
-        addAttr:function(element,nature,elementname){
+        addAttr:function(element,juagenature,nature,elementname){
             let naturename = "data-"+nature;
-            naturename === "class";
+            juagenature = juagenature === true ? naturename === "class": naturename=nature;
+            // naturename === "class";
             return element.setAttribute(naturename,elementname)
         },
-        removeAttr:function(element,nature,elementname){
-            let naturename = "data-"+nature;
-            naturename === "class";
+        removeAttr:function(element,juagenature,nature,elementname){
+            let naturename = "data-"+nature; 
+            juagenature = juagenature === true ? naturename === "class": naturename=nature;
+            //naturename === "class";
             return element.removeAttribute(naturename,elementname)
         }
     }
@@ -44,6 +46,7 @@
     ScrollToTop.defaultOptins = {
         speed: this.speed,
         scrolldistance: this.scrolldistance,
+        juagenature: this.juagenature,
         beforenaturename: this.beforenaturename,
         beforclassname: this.beforeclassname,
         afternaturename: this.afternaturename,
@@ -55,10 +58,11 @@
         this.options = util.extend({}, this.constructor.defaultOptins, options);
         this.speed = this.options.speed;
         this.scrolldistance = this.options.scrolldistance;
-        this.beforenaturename = this.options.beforenaturename,
-        this.beforeclassname = this.options.beforeclassname,
-        this.afternaturename = this.options.afternaturename,
-        this.afterclassname = this.options.afterclassname
+        this.juagenature = this.options.juagenature;
+        this.beforenaturename = this.options.beforenaturename;
+        this.beforeclassname = this.options.beforeclassname;
+        this.afternaturename = this.options.afternaturename;
+        this.afterclassname = this.options.afterclassname;
         this.init();//创建共有方法来提供默认选项
     }
     var proto = ScrollToTop.prototype = new scrollTop();
@@ -73,10 +77,12 @@
         let top = this.element;//获取向上拉的选择器
         let speed = this.speed;
         let sdistance = this.scrolldistance;
+        let jnature = this.juagenature;
         let bnaturename = this.beforenaturename;
         let bclassname = this.beforeclassname;
         let anaturename = this.afternaturename;
         let aclassname = this.afterclassname;
+        console.log(jnature)
         //console.log(top)
         // if(e.wheelDelta){
         //     if(e.wheelDelta < 0){
@@ -104,11 +110,11 @@
             let otop = document.documentElement.scrollTop || document.body.scrollTop;
             console.log(sdistance)
             if(otop >= sdistance){
-                util.removeAttr(top,anaturename,aclassname)
-                util.addAttr(top,bnaturename,bclassname)
+                util.removeAttr(top,jnature,anaturename,aclassname)
+                util.addAttr(top,jnature,bnaturename,bclassname)
             }else{
-                util.removeAttr(top,bnaturename,bclassname)
-                util.addAttr(top,anaturename,aclassname)
+                util.removeAttr(top,jnature,bnaturename,bclassname)
+                util.addAttr(top,jnature,anaturename,aclassname)
             }
         })
     }
