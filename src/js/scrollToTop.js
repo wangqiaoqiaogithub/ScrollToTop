@@ -28,13 +28,15 @@
         },
         addAttr:function(element,juagenature,nature,elementname){
             let naturename = "data-"+nature;
-            juagenature = juagenature === true ? naturename === "class": naturename=nature;
+            //用juagenature形参来制定naturename变量
+            juagenature = juagenature === true ? element.setAttribute(naturename,elementname) === element.setAttribute("class",elementname) : naturename=nature;
             // naturename === "class";
             return element.setAttribute(naturename,elementname)
         },
         removeAttr:function(element,juagenature,nature,elementname){
-            let naturename = "data-"+nature; 
-            juagenature = juagenature === true ? naturename === "class": naturename=nature;
+            let naturename = "data-"+nature;
+            //用juagenature形参来制定naturename变量 
+            juagenature = juagenature === true ?  element.removeAttribute(naturename,elementname) === element.removeAttribute("class",elementname) : naturename=nature;
             //naturename === "class";
             return element.removeAttribute(naturename,elementname)
         }
@@ -83,18 +85,6 @@
         let anaturename = this.afternaturename;
         let aclassname = this.afterclassname;
         console.log(jnature)
-        //console.log(top)
-        // if(e.wheelDelta){
-        //     if(e.wheelDelta < 0){
-        //         console.log(1)
-        //         return speed === 1;
-        //     }
-        // }else if(e.detail){
-        //     if(e.tail < 0){
-        //         console.log(1)
-        //         return speed === 1;
-        //     }
-        // }
         util.addEvent(top,"click",function(){
             var timer = setInterval(function(){
                 let otop = document.documentElement.scrollTop || document.body.scrollTop;

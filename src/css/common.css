@@ -57,7 +57,10 @@ time, mark, audio, video, input {
     background-position: 6px 0px;
     background-repeat: no-repeat
 }
-.stspan{
+.bclass{
+    background-color: #000!important;
+}
+.stspan {
     display: none;
     float: left;
     width: 95px;
@@ -72,4 +75,7 @@ time, mark, audio, video, input {
 }
 #stcontainer:hover .stspan{
     display: block;
+}
+.bclass:hover .stspan{
+    color: #fff!important;
 }
