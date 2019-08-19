@@ -29,14 +29,14 @@
         addAttr:function(element,juagenature,nature,elementname){
             let naturename = "data-"+nature;
             //用juagenature形参来制定naturename变量
-            juagenature = juagenature === true ? element.setAttribute(naturename,elementname) === element.setAttribute("class",elementname) : naturename=nature;
+            juagenature = juagenature === true ? element.setAttribute(naturename,elementname) === element.setAttribute("class",elementname) : naturename="";
             // naturename === "class";
             return element.setAttribute(naturename,elementname)
         },
         removeAttr:function(element,juagenature,nature,elementname){
             let naturename = "data-"+nature;
             //用juagenature形参来制定naturename变量 
-            juagenature = juagenature === true ?  element.removeAttribute(naturename,elementname) === element.removeAttribute("class",elementname) : naturename=nature;
+            juagenature = juagenature === true ?  element.removeAttribute(naturename,elementname) === element.removeAttribute("class",elementname) : naturename="";
             //naturename === "class";
             return element.removeAttribute(naturename,elementname)
         }

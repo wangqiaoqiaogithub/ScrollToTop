@@ -39,8 +39,6 @@ time, mark, audio, video, input {
     position: fixed;
     bottom: 20%;
     right: 20px;
-    width: 50px;
-    height: 50px;
     overflow: hidden;
     vertical-align: middle;
     box-shadow: 0 6px 12px 0 rgba(80,80,80,.4);
@@ -52,13 +50,18 @@ time, mark, audio, video, input {
     cursor: pointer;
     width: 50px;
     height: 50px;
-    border-radius: 100%;
     background-image: url(../img/icon.svg);
     background-position: 6px 0px;
     background-repeat: no-repeat
 }
+
 .bclass{
-    background-color: #000!important;
+    width: 50px;
+    height: 50px;
+}  
+.aclass{
+    width: 0px;
+    height: 0px;
 }
 .stspan {
     display: none;
@@ -75,7 +78,5 @@ time, mark, audio, video, input {
 }
 #stcontainer:hover .stspan{
     display: block;
-}
-.bclass:hover .stspan{
-    color: #fff!important;
+    color: #000;
 }

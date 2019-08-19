@@ -25,6 +25,7 @@ JavaScript文件：
 var videoscreen = new ScrollToTop('#myscrollTop'决定点击向上滚动的容器为id属性值,{
   speed: 10,//决定了向上滚动是的过渡速度(任意数值)
   scrolldistance: 40,//垂直滚动条的距离(任意数值)
+  juagenature: false,//值为true的时候自定义属性开头带有data-值该值为false为(不能使用食用添加类名或自定义属性选项)
   beforenaturename: "beforename",//滚动前的自定义属性
   beforeclassname: "bclass",//滚动前的自定义类名(以class属性的方式解析)
   afternaturename: "aftername",//滚动后的自定义属性
