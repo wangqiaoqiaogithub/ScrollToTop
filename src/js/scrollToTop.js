@@ -26,6 +26,18 @@
                 return bound
             }
         },
+        removeEvent:function(element,type,fn){
+            if(document.removeEventListener){
+                element.removeEventListener(type,fn,false)
+                return fn;
+            }else if(document.detachEvent){
+                var bound = function(){
+                    return fn.apply(element, arguments);
+                }
+                element.detachEvent('on'+ type, arguments)
+                return bound
+            }
+        },
         addAttr:function(element,juagenature,nature,elementname){
             let naturename = "data-"+nature;
             //用juagenature形参来制定naturename变量
@@ -51,7 +63,7 @@
         scrolldistance: this.scrolldistance,
         juagenature: this.juagenature,
         beforenaturename: this.beforenaturename,
-        beforclassname: this.beforeclassname,
+        beforeclassname: this.beforeclassname,
         afternaturename: this.afternaturename,
         afterclassname: this.afterclassname
     }
@@ -86,9 +98,23 @@
         let anaturename = this.afternaturename;
         let aclassname = this.afterclassname;
         console.log(jnature)
-        // if(juagenature === false){
-        //     //如果该属性为false则删除滚动事件
-        // }
+        var juagescroll = function(){
+            let otop = document.documentElement.scrollTop || document.body.scrollTop;
+            console.log(sdistance)
+            if(otop >= sdistance){
+                util.removeAttr(top,jnature,anaturename,aclassname)
+                util.addAttr(top,jnature,bnaturename,bclassname)
+            }else{
+                util.removeAttr(top,jnature,bnaturename,bclassname)
+                util.addAttr(top,jnature,anaturename,aclassname)
+            }
+        }
+        if(jnature === false){
+            //如果该属性为false则删除滚动事件
+            util.removeEvent(window,scroll,juagescroll)
+        }else {
+            util.addEvent(window,"scroll",juagescroll)
+        }
         util.addEvent(top,"click",function(){
             var timer = setInterval(function(){
                 let otop = document.documentElement.scrollTop || document.body.scrollTop;
@@ -99,17 +125,6 @@
                 }
             },speed)//speed表示为滑动的速度(定时器的帧数)
             console.log(speed)
-        })
-        util.addEvent(window,"scroll",function(){
-            let otop = document.documentElement.scrollTop || document.body.scrollTop;
-            console.log(sdistance)
-            if(otop >= sdistance){
-                util.removeAttr(top,jnature,anaturename,aclassname)
-                util.addAttr(top,jnature,bnaturename,bclassname)
-            }else{
-                util.removeAttr(top,jnature,bnaturename,bclassname)
-                util.addAttr(top,jnature,anaturename,aclassname)
-            }
         })
     }
     if (typeof exports != 'undefined' && !exports.nodeType) {
