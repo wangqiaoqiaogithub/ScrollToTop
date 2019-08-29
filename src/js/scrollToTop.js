@@ -39,7 +39,7 @@
             }
         },
         addAttr:function(element,juagenature,nature,elementname){
-            let naturename = "data-"+nature;
+            let naturename = "data-class";
             //用juagenature形参来制定naturename变量
             juagenature = juagenature === true ? element.setAttribute(naturename,elementname) === element.setAttribute("class",elementname) : naturename="";
             // naturename === "class";
