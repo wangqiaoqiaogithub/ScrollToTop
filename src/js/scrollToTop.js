@@ -2,7 +2,7 @@
     var root = (typeof self == 'object' && self.self == self && self) ||
         (typeof global == 'object' && global.global == global && global) ||
         this || {};
-
+        
     var util = {
         extend: function(target){
             for(var i =1,len = arguments.length; i < len; i++){
@@ -46,12 +46,12 @@
             // element.removeAttribute('class',elementname)
             return element.setAttribute(naturename,elementname)
         },
-        removeAttr:function(element,juagenature,nature,elementname){
-            let naturename = "data-"+nature;
+        removeAttr:function(element,juagenature,nature){
+            let naturename = nature;
             //用juagenature形参来制定naturename变量 
-            juagenature = juagenature === true ?  element.removeAttribute(naturename,elementname) === element.removeAttribute("class",elementname) : naturename="";
+            juagenature = juagenature === true ?  element.removeAttribute(naturename): naturename="";
             //naturename === "class";
-            return element.removeAttribute(naturename,elementname)
+            return element.removeAttribute(naturename)
         }
     }
     function scrollTop(topevent,speed) {
@@ -62,9 +62,7 @@
         speed: this.speed,
         scrolldistance: this.scrolldistance,
         juagenature: this.juagenature,
-        beforenaturename: this.beforenaturename,
         beforeclassname: this.beforeclassname,
-        afternaturename: this.afternaturename,
         afterclassname: this.afterclassname
     }
     function ScrollToTop(element,options){
@@ -74,9 +72,7 @@
         this.speed = this.options.speed;
         this.scrolldistance = this.options.scrolldistance;
         this.juagenature = this.options.juagenature;
-        this.beforenaturename = this.options.beforenaturename;
         this.beforeclassname = this.options.beforeclassname;
-        this.afternaturename = this.options.afternaturename;
         this.afterclassname = this.options.afterclassname;
         this.init();//创建共有方法来提供默认选项
     }
@@ -93,20 +89,19 @@
         let speed = this.speed;
         let sdistance = this.scrolldistance;
         let jnature = this.juagenature;
-        let bnaturename = this.beforenaturename;
         let bclassname = this.beforeclassname;
-        let anaturename = this.afternaturename;
         let aclassname = this.afterclassname;
         console.log(jnature)
         var juagescroll = function(){
             let otop = document.documentElement.scrollTop || document.body.scrollTop;
             console.log(sdistance)
+            util.removeAttr(top,jnature,'class')
             if(otop >= sdistance){
-                util.removeAttr(top,jnature,anaturename,aclassname)
-                util.addAttr(top,jnature,bnaturename,bclassname)
+                // util.removeAttr(top,jnature,'class')
+                util.addAttr(top,jnature,'data-class',bclassname)
             }else{
-                util.removeAttr(top,jnature,bnaturename,bclassname)
-                util.addAttr(top,jnature,anaturename,aclassname)
+                // util.removeAttr(top,jnature,'class')
+                util.addAttr(top,jnature,'data-class',aclassname)
             }
         }
         if(jnature === false){
