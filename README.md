@@ -22,14 +22,12 @@ HTML文件：
 ```
 JavaScript文件：
 ```js
-var videoscreen = new ScrollToTop('#myscrollTop'决定点击向上滚动的容器为id属性值,{
-  speed: 10,//决定了向上滚动是的过渡速度(任意数值)
-  scrolldistance: 40,//垂直滚动条的距离(任意数值)
-  juagenature: false,//值为true的时候自定义属性开头带有data-值该值为false为(不能使用添加类名或自定义属性选项)
-  beforenaturename: "beforename",//滚动前的自定义属性
-  beforeclassname: "bclass",//滚动前的自定义类名(以class属性的方式解析)
-  afternaturename: "aftername",//滚动后的自定义属性
-  afterclassname: "aclass"//滚动前的自定义类名(以class属性的方式解析)
+var stp = new ScrollToTop('#stcontainer'//向上滚动的id属性容器,{
+    speed: 10,//点击时滚动条向上回去时过渡的速度
+    scrolldistance: 100,//垂直滚动条的距离
+    juagenature: true,//值为true的时候自定义属性为data-class值该值为false为(data-class属性会自动解析为)
+    beforeclassname: "bclass",//滚动前的自定义类名(以class属性的方式解析)
+    afterclassname: "aclass"//滚动前的自定义类名(以class属性的方式解析)
 })
 ```
 ## 环境

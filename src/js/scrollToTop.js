@@ -42,16 +42,7 @@
             let naturename = "data-class";
             //用juagenature形参来制定naturename变量
             juagenature = juagenature === true ? element.setAttribute(naturename,elementname) === element.setAttribute("class",elementname) : naturename="";
-            // naturename === "class";
-            // element.removeAttribute('class',elementname)
             return element.setAttribute(naturename,elementname)
-        },
-        removeAttr:function(element,juagenature,nature){
-            let naturename = nature;
-            //用juagenature形参来制定naturename变量 
-            juagenature = juagenature === true ?  element.removeAttribute(naturename): naturename="";
-            //naturename === "class";
-            return element.removeAttribute(naturename)
         }
     }
     function scrollTop(topevent,speed) {
@@ -95,12 +86,9 @@
         var juagescroll = function(){
             let otop = document.documentElement.scrollTop || document.body.scrollTop;
             console.log(sdistance)
-            util.removeAttr(top,jnature,'class')
             if(otop >= sdistance){
-                // util.removeAttr(top,jnature,'class')
                 util.addAttr(top,jnature,'data-class',bclassname)
             }else{
-                // util.removeAttr(top,jnature,'class')
                 util.addAttr(top,jnature,'data-class',aclassname)
             }
         }
