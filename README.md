@@ -13,7 +13,7 @@ git clone git@github.com:wangqiaoqiaogithub/ScrollToTop.git
 ```
 或者
 ```js
-var audio = new ScrollToTop('#myAudio');
+var stop = new ScrollToTop('#myscrolTop');
 ```
 ## 示例
 HTML文件：
