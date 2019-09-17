@@ -22,7 +22,7 @@ HTML文件：
 ```
 JavaScript文件：
 ```js
-var stp = new ScrollToTop('#stcontainer'//向上滚动的id属性容器,{
+var stp = new ScrollToTop('#myscrollTop'//向上滚动的id属性容器,{
     speed: 10,//点击时滚动条向上回去时过渡的速度
     scrolldistance: 100,//垂直滚动条的距离
     juagenature: true,//值为true的时候自定义属性为data-class值该值为false为(data-class属性会自动解析为)
