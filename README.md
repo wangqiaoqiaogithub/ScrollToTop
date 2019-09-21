@@ -20,7 +20,7 @@ HTML文件：
 ```html
 <div id="myscrollTop"></div>
 ```
-JavaScript文件：
+JavaScript文件的API配置：
 ```js
 var stp = new ScrollToTop('#myscrollTop'//向上滚动的id属性容器,{
     speed: 10,//点击时滚动条向上回去时过渡的速度
