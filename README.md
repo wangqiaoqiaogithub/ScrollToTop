@@ -1,5 +1,5 @@
 ﻿## ScrollToTop.js
->这是一个点击向上滚动的原生插件
+>这是一个点击向上滚动的原生JavaScript插件
 ## 介绍
 * 是一个原生无任何依赖项具有封装性的模块化插件
 * 效果演示：[ScrollToTop DEMO](https://wangqiaoqiaogithub.github.io/ScrollToTop/dist/index.html)(可在控制台查看各个方法属性的特性及作用)
