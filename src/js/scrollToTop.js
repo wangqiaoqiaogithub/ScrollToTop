@@ -60,11 +60,6 @@
         scrollTop.call(arguments);
         this.element = typeof element === "string" ? document.querySelector(element) : element;
         this.options = util.extend({}, this.constructor.defaultOptins, options);
-        this.speed = this.options.speed;
-        this.scrolldistance = this.options.scrolldistance;
-        this.juagenature = this.options.juagenature;
-        this.beforeclassname = this.options.beforeclassname;
-        this.afterclassname = this.options.afterclassname;
         this.init();//创建共有方法来提供默认选项
     }
     var proto = ScrollToTop.prototype = new scrollTop();
@@ -77,11 +72,11 @@
     proto.bindscrollevent = function(e){
         e = e || window.event;
         let top = this.element;//获取向上拉的选择器
-        let speed = this.speed;
-        let sdistance = this.scrolldistance;
-        let jnature = this.juagenature;
-        let bclassname = this.beforeclassname;
-        let aclassname = this.afterclassname;
+        let speed = this.options.speed;
+        let sdistance = this.options.scrolldistance;
+        let jnature = this.options.juagenature;
+        let bclassname = this.options.beforeclassname;
+        let aclassname = this.options.afterclassname;
         console.log(jnature)
         var juagescroll = function(){
             let otop = document.documentElement.scrollTop || document.body.scrollTop;
